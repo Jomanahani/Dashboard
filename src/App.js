@@ -1,9 +1,19 @@
+import { useState } from "react";
+import NavBar from "./Components/NavBar";
+import { lightTheme } from "../src/global/Themes";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./global/style";
 
 function App() {
-  return (
-    <div className="App">
+  const [theme, setTheme] = useState(lightTheme);
 
-    </div>
+  return (
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <GlobalStyle />
+        <NavBar />
+      </div>
+    </ThemeProvider>
   );
 }
 
