@@ -25,13 +25,14 @@ body a {
 export const Layout = styled.div`
   display: grid;
   grid-template-areas:
-    "nav nav aside"
-    "main steps aside";
-  grid-template-columns: 1fr 1fr 6%;
+    "aside nav nav"
+    "aside steps main";
+  grid-template-columns: 6% 15% 1fr;
+  grid-template-rows: 5rem 1fr;
 `;
-
-// export const Container = styled.div`
-//   width: 100%;
-//   padding: 0 7%;
-//   margin: 0 auto;
-// `;
+export const Main = styled.main`
+  grid-area: main;
+  width: 100%;
+  padding: 2% 7%;
+  margin: 0 auto;
+`;

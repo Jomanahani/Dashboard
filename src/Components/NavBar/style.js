@@ -4,6 +4,7 @@ export const Navigation = styled.nav`
   height: 5rem;
   grid-area: nav;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   padding: 0 6%;
   background-color: ${(props) => props.theme.pallet.mainBackdround};
@@ -23,13 +24,6 @@ export const NavItem = styled.li`
   cursor: pointer;
   p {
     padding: 0 0.5rem;
-  }
-
-  &.guest {
-    width: 12rem;
-    height: 2.5rem;
-    border: 1px solid ${(props) => props.theme.pallet.Borders};
-    border-radius: 1.5rem;
   }
 `;
 export const ProfileIcon = styled.div`
