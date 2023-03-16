@@ -12,12 +12,13 @@ export const Aside = styled.aside`
   background-color: ${(props) => props.theme.pallet.page};
   color: ${(props) => props.theme.pallet.secondaryText};
   font-size: 1.4rem;
-
+  
   div {
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 1.8rem;
+    cursor: pointer;
   }
 `;
 export const Square = styled.div`
