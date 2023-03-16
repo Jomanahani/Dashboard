@@ -16,7 +16,7 @@ export default function NavBar() {
         </NavItem>
         <NavItem>
           <p>عربي </p>
-          <TfiWorld />
+          <TfiWorld style={{ fontSize: "1.5rem"}} />
         </NavItem>
         <NavItem className="guest">
           <p>الإنتقال إلى وضع الضيف</p>

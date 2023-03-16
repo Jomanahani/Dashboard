@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Navigation = styled.nav`
   height: 5rem;
+  grid-area: nav;
   display: flex;
   align-items: center;
   padding: 0 6%;
@@ -10,9 +11,8 @@ export const Navigation = styled.nav`
 `;
 export const NavUl = styled.ul`
   display: flex;
-  justify-content: space-between;
+  gap: 2rem;
   list-style: none;
-  width: 30%;
 `;
 export const NavItem = styled.li`
   display: flex;
