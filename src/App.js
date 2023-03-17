@@ -2,8 +2,8 @@ import { useState } from "react";
 import { lightTheme } from "../src/global/Themes";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./global/style";
-import Home from "./Pages/Home";
 import CategoryProvider from "./Context/CartContext";
+import Router from "./Router";
 
 function App() {
   const [theme, setTheme] = useState(lightTheme);
@@ -13,7 +13,7 @@ function App() {
       <CategoryProvider>
       <div className="App">
         <GlobalStyle />
-        <Home />
+        <Router />
       </div>
       </CategoryProvider>
     </ThemeProvider>
