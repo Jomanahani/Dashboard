@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Next = styled.button`
@@ -12,11 +13,17 @@ const Next = styled.button`
   outline: none;
   border-radius: 1.5rem;
   cursor: pointer;
-  
+
   &:hover {
     background-color: #cb7383;
   }
 `;
-export default function NextButt() {
-  return <Next>التالي </Next>;
+export default function NextButt(props) {
+  return (
+    <>
+      <Link to={props.path}>
+        <Next>التالي </Next>
+      </Link>
+    </>
+  );
 }
