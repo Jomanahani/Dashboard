@@ -4,14 +4,6 @@ export const UserFlow = styled.aside`
   border-left:  2px solid ${(props) => props.theme.pallet.Lines};
 `;
 
-export const StepsWrapper = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-`;
-
 export const Step = styled.li`
   display: flex;
   flex-direction: row;
