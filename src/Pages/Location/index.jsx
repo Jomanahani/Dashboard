@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import GoogleMapReact from "google-map-react";
+import Geocode from "react-geocode";
 
 import Container from "../../Components/Container";
 import NextButt from "../../Components/NextButt";
@@ -13,6 +14,7 @@ export default function Location() {
     lat: "",
     lng: "",
   });
+  const [address, setAddress] = useState("");
 
   const handleMapClick = (event) => {
     setLocation({
@@ -20,6 +22,18 @@ export default function Location() {
       lng: event.lng,
     });
   };
+  Geocode.setApiKey("AIzaSyC1yySSSHPEEBHeNo6E2MjRTlE6w4mLZog");
+  Geocode.setLanguage("ar");
+
+  useEffect(() => {
+    Geocode.fromLatLng(location.lat, location.lng)
+      .then((response) => {
+        const address = response.results[0].formatted_address;
+        console.log("address", address);
+        setAddress(address);
+      })
+      .catch((error) => console.log(error));
+  }, [location]);
 
   const Marker = () => <div className="marker">📍</div>;
 
@@ -48,8 +62,8 @@ export default function Location() {
           </GoogleMapReact>
         </MapContainer>
         <SupTitle>الموقع الذي تم إختياره</SupTitle>
-        <Description> {location.lng} </Description>
-        <NextButt path={PATHS.LOCATION} />
+        <Description> {address} </Description>
+        <NextButt path={PATHS.CALENDAR} />
       </Container>
     </>
   );
