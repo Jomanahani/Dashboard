@@ -9,11 +9,13 @@ import { Layout, Main, Spinner } from "../global/style";
 const Home = lazy(() => import("../Pages/Home"));
 const UnitInformation = lazy(() => import("../Pages/UnitInformation"));
 const Location = lazy(() => import("../Pages/Location"));
+const Calendar = lazy(() => import("../Pages/Calendar"));
 
 export const PATHS = {
   HOME: "/",
   UNITINFORMATION: "/unitInformation",
-  LOCATION: "/location"
+  LOCATION: "/location",
+  CALENDAR:"/calendar"
 };
 
 export default function Router() {
@@ -30,6 +32,7 @@ export default function Router() {
             <Route index element={<Home />} />
             <Route path={PATHS.UNITINFORMATION} element={<UnitInformation />} />
             <Route path={PATHS.LOCATION} element={<Location />} />
+            <Route path={PATHS.CALENDAR} element={<Calendar />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </Suspense>

@@ -22,19 +22,23 @@ export default function Home() {
   } = useCategoryContext();
 
   console.log("state", categories);
-  const options = ["ستاندرد", "ديلوكس", "بريمير", "أجزاكتيف"];
+  const options = [
+    { key: "Standard", value: "ستاندرد" },
+    { key: "Deluxe", value: "ديلوكس" },
+    { key: "premiere", value: "بريمير" },
+    { key: "Executive", value: "أجزاكتيف" },
+  ];
 
   const handleSelectChange = (event) => {
-    console.log("add", event.target.value);
-    addCategory(event.target.value);
+    const Selected = options.find((Category) => Category.key === event.target.value);
+    addCategory(Selected);
   };
 
   const ExistedCategory = (item) =>
-    categories.find((Category) => Category === item);
+    categories.find((Category) => Category.value === item);
 
   const handleRemove = (item) => {
     removeCategory(item);
-    console.log(item);
   };
   return (
     <>
@@ -51,21 +55,21 @@ export default function Home() {
           <option></option>
           {options.map(
             (item) =>
-              !ExistedCategory(item) && <option value={item}>{item}</option>
+              !ExistedCategory(item.value) && <option value={item.key} key={item.key}>{item.value}</option>
           )}
         </StyledSelect>
         <SupTitle>التصنيفات المختارة</SupTitle>
         <SelectedOptions>
           {categories.map((item) => (
-            <>
-              <Category>{item}</Category>
+            <React.Fragment key={item.key}>  
+              <Category >{item.value}</Category>
               <Remove onClick={() => handleRemove(item)}>
                 <IoIosClose />
               </Remove>
-            </>
+            </React.Fragment>
           ))}
         </SelectedOptions>
-        <NextButt path={PATHS.UNITINFORMATION}/>
+        <NextButt path={PATHS.UNITINFORMATION} />
       </Container>
     </>
   );
