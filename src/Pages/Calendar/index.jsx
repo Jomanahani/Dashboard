@@ -22,7 +22,7 @@ export default function Calendarr() {
           value={selectedDate}
         />
         {/* {selectedDate.toLocaleDateString("en-US")} */}
-        <NextButt path={PATHS.UNITINFORMATION} />
+        <NextButt path={PATHS.DETAILS} />
       </Container>
     </>
   );

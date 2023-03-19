@@ -12,6 +12,9 @@ const Borderd = styled.p`
   justify-content: center;
   color: ${(props) => props.theme.pallet.primary};
   cursor: pointer;
+  &:hover{
+    background-color: ${(props) => props.theme.pallet.Lines};
+  }
 `;
 
 export default function BorderdText(props) {
