@@ -35,7 +35,7 @@ export default function Location() {
       .catch((error) => console.log(error));
   }, [location]);
 
-  const Marker = () => <div className="marker">📍</div>;
+  const Marker = () => <div className="marker" style={{fontSize:"1.5rem"}}>📍</div>;
 
   const defaultProps = {
     center: {
