@@ -25,6 +25,7 @@ padding: 0.5rem 0;
 
 export const SupTitle = styled.p`
 padding: 0.5rem 0;
-font-weight: 500;
+font-weight: 600;
+font-size: 1.1rem;
   color: ${(props) => props.theme.pallet.primary};
 `;

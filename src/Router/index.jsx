@@ -10,12 +10,14 @@ const Home = lazy(() => import("../Pages/Home"));
 const UnitInformation = lazy(() => import("../Pages/UnitInformation"));
 const Location = lazy(() => import("../Pages/Location"));
 const Calendar = lazy(() => import("../Pages/Calendar"));
+const Details = lazy(() => import("../Pages/Details"));
 
 export const PATHS = {
   HOME: "/",
   UNITINFORMATION: "/unitInformation",
   LOCATION: "/location",
-  CALENDAR:"/calendar"
+  CALENDAR:"/calendar",
+  DETAILS:"/details"
 };
 
 export default function Router() {
@@ -33,6 +35,7 @@ export default function Router() {
             <Route path={PATHS.UNITINFORMATION} element={<UnitInformation />} />
             <Route path={PATHS.LOCATION} element={<Location />} />
             <Route path={PATHS.CALENDAR} element={<Calendar />} />
+            <Route path={PATHS.DETAILS} element={<Details />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </Suspense>
