@@ -8,8 +8,6 @@ import Back from "../Components/Back";
 
 import { Layout, Main, Spinner } from "../global/style";
 
-import { useCategoryContext } from "../Context/CartContext";
-
 const Home = lazy(() => import("../Pages/Home"));
 const UnitInformation = lazy(() => import("../Pages/UnitInformation"));
 const Location = lazy(() => import("../Pages/Location"));
@@ -29,9 +27,6 @@ export const PATHS = {
 };
 
 export default function Router() {
-  const {
-    state: { categories },
-  } = useCategoryContext();
   return (
     <>
       <Layout>
