@@ -18,7 +18,7 @@ export default function Location() {
     lat: "",
     lng: "",
   });
-  const [address, setAddress] = useState("");
+  const [address, setAddress] = useState(null);
 
   const handleMapClick = (event) => {
     setLocation({
@@ -72,7 +72,10 @@ export default function Location() {
         </MapContainer>
         <SupTitle>الموقع الذي تم إختياره</SupTitle>
         <Description> {address} </Description>
-        <NextButt path={PATHS.CALENDAR + `/${Category.id}`} />
+        <NextButt
+          disabled={address == null ? true : false}
+          path={PATHS.CALENDAR + `/${Category.id}`}
+        />
       </Container>
     </>
   );

@@ -10,14 +10,18 @@ import { StyledCalendar } from "./style";
 import "react-calendar/dist/Calendar.css";
 
 export default function Calendarr() {
+  const Category = useParams();
   const [selectedDate, setSelectedDate] = useState(new Date());
 
-  const Category = useParams();
-
   const handleDateChange = (date) => {
-    console.log(date.toLocaleDateString("en-US"));
     setSelectedDate(date);
   };
+  
+  let MatchingDate =
+    selectedDate.toLocaleDateString("en-US") ===
+    new Date().toLocaleDateString("en-US")
+      ? true
+      : false;
 
   return (
     <>
@@ -28,7 +32,10 @@ export default function Calendarr() {
           value={selectedDate}
         />
         {/* {selectedDate.toLocaleDateString("en-US")} */}
-        <NextButt path={PATHS.DETAILS +`/${Category.id}`} />
+        <NextButt
+          disabled={MatchingDate}
+          path={PATHS.DETAILS + `/${Category.id}`}
+        />
       </Container>
     </>
   );

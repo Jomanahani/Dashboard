@@ -17,12 +17,15 @@ const Next = styled.button`
   &:hover {
     background-color: #cb7383;
   }
+  :disabled {
+    background-color: #ccc;
+  }
 `;
 export default function NextButt(props) {
   return (
     <>
       <Link to={props.path}>
-        <Next>التالي </Next>
+        <Next disabled={props.disabled}>التالي </Next>
       </Link>
     </>
   );
