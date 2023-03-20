@@ -14,7 +14,6 @@ import { useCategoryContext } from "../../Context/CartContext";
 
 export default function Location() {
   const {
-    state: { categories },
     addLocation,
   } = useCategoryContext();
 

@@ -12,7 +12,6 @@ import { useCategoryContext } from "../../Context/CartContext";
 
 export default function Calendarr() {
   const {
-    state: { categories },
     addDate,
   } = useCategoryContext();
 
