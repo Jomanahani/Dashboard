@@ -8,6 +8,10 @@ const ACTIONS = {
   ADD_CATEGORY: "addCategory",
   REMOVE_CATEGORY: "removeCategory",
   ADD_UNITS: "addUnits",
+  ADD_LOCATION: "addLocation",
+  ADD_DATE: "addDate",
+  ADD_SPACE: "addSpace",
+  ADD_ROOMS: "addRooms",
 };
 
 const Reduce = (state, action) => {
@@ -27,6 +31,46 @@ const Reduce = (state, action) => {
         categories: state.categories.map((category) => {
           if (category.key === action.payload.key) {
             return { ...category, UnitsNum: action.payload.units };
+          } else {
+            return category;
+          }
+        }),
+      };
+    case ACTIONS.ADD_LOCATION:
+      return {
+        categories: state.categories.map((category) => {
+          if (category.key === action.payload.key) {
+            return { ...category, location: action.payload.location };
+          } else {
+            return category;
+          }
+        }),
+      };
+    case ACTIONS.ADD_DATE:
+      return {
+        categories: state.categories.map((category) => {
+          if (category.key === action.payload.key) {
+            return { ...category, date: action.payload.date };
+          } else {
+            return category;
+          }
+        }),
+      };
+    case ACTIONS.ADD_SPACE:
+      return {
+        categories: state.categories.map((category) => {
+          if (category.key === action.payload.key) {
+            return { ...category, space: action.payload.space };
+          } else {
+            return category;
+          }
+        }),
+      };
+    case ACTIONS.ADD_ROOMS:
+      return {
+        categories: state.categories.map((category) => {
+          if (category.key === action.payload.key) {
+            return { ...category, roomNum: action.payload.roomNum };
           } else {
             return category;
           }
@@ -52,6 +96,8 @@ const useCategory = () => {
     localStorage.setItem("categories", JSON.stringify(state.categories));
   }, [state]);
 
+  console.log("categories", state.categories);
+
   const addCategory = (category) =>
     dispatch({ type: ACTIONS.ADD_CATEGORY, payload: category });
 
@@ -61,6 +107,18 @@ const useCategory = () => {
   const addUnits = (key, units) =>
     dispatch({ type: ACTIONS.ADD_UNITS, payload: { key, units } });
 
+  const addLocation = (key, location) =>
+    dispatch({ type: ACTIONS.ADD_LOCATION, payload: { key, location } });
+
+  const addDate = (key, date) =>
+    dispatch({ type: ACTIONS.ADD_DATE, payload: { key, date } });
+
+  const addSpace = (key, space) =>
+    dispatch({ type: ACTIONS.ADD_SPACE, payload: { key, space } });
+
+  const addRooms = (key, roomNum) =>
+    dispatch({ type: ACTIONS.ADD_ROOMS, payload: { key, roomNum } });
+    
   function isCompleted(arr) {
     return arr.every((obj) => {
       return (
@@ -77,6 +135,10 @@ const useCategory = () => {
     addCategory,
     removeCategory,
     addUnits,
+    addLocation,
+    addDate,
+    addSpace,
+    addRooms,
     isCompleted,
   };
 };

@@ -8,15 +8,22 @@ import NextButt from "../../Components/NextButt";
 
 import { StyledCalendar } from "./style";
 import "react-calendar/dist/Calendar.css";
+import { useCategoryContext } from "../../Context/CartContext";
 
 export default function Calendarr() {
+  const {
+    state: { categories },
+    addDate,
+  } = useCategoryContext();
+
   const Category = useParams();
   const [selectedDate, setSelectedDate] = useState(new Date());
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
+    addDate(Category.id, selectedDate.toLocaleDateString("en-US"));
   };
-  
+
   let MatchingDate =
     selectedDate.toLocaleDateString("en-US") ===
     new Date().toLocaleDateString("en-US")

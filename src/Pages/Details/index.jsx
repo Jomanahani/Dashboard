@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useParams } from "react-router";
 import { PATHS } from "../../Router";
@@ -14,7 +14,11 @@ import { CounterButt, CounterValue } from "../../Components/UnitsCounter/style";
 import { SupTitle } from "../../Components/Container/style";
 import { RoomCounter, RoomsContainer, SpaceInput } from "./style";
 
+import { useCategoryContext } from "../../Context/CartContext";
+
 export default function Details() {
+  const { addSpace, addRooms } = useCategoryContext();
+
   const Category = useParams();
 
   const [count, setCount] = useState(0);
@@ -23,6 +27,7 @@ export default function Details() {
 
   const hadleInputChange = (e) => {
     setSpace(e.target.value);
+    addSpace(Category.id, space);
   };
 
   const Increment = () => {
@@ -36,6 +41,10 @@ export default function Details() {
       setRoomes(rooms.slice(0, -1));
     }
   };
+
+  useEffect(() => {
+    addRooms(Category.id, count);
+  }, [count]);
 
   return (
     <>
