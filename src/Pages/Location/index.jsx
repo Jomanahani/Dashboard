@@ -39,12 +39,11 @@ export default function Location() {
     Geocode.fromLatLng(location.lat, location.lng)
       .then((response) => {
         const address = response.results[0].formatted_address;
-        console.log("address:", address, "Category.key", Category.key);
         setAddress(address);
         addLocation(Category.id, address);
       })
       .catch((error) => console.log(error));
-  }, [location]);
+  },[location,addLocation,Category.id]);
 
   const Marker = () => (
     <div className="marker" style={{ fontSize: "1.5rem" }}>

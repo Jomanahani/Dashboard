@@ -6,7 +6,7 @@ import CategoryProvider from "./Context/CartContext";
 import Router from "./Router";
 
 function App() {
-  const [theme, setTheme] = useState(lightTheme);
+  const [theme] = useState(lightTheme);
 
   return (
     <ThemeProvider theme={theme}>

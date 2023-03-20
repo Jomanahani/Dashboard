@@ -34,7 +34,7 @@ export default function UnitsCounter({ item }) {
 
   useEffect(() => {
     addUnits(item, count);
-  }, [count]);
+  }, [count,addUnits,item]);
 
   return item ? (
     <div style={{ width: "65%", margin: " 0 1.2rem" }}>

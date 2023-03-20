@@ -44,7 +44,7 @@ export default function Details() {
 
   useEffect(() => {
     addRooms(Category.id, count);
-  }, [count]);
+  }, [count,Category.id,addRooms]);
 
   return (
     <>
