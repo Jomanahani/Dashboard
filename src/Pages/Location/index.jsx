@@ -10,8 +10,14 @@ import NextButt from "../../Components/NextButt";
 import { Description, SupTitle } from "../../Components/Container/style";
 
 import { MapContainer } from "./style";
+import { useCategoryContext } from "../../Context/CartContext";
 
 export default function Location() {
+  const {
+    state: { categories },
+    addLocation,
+  } = useCategoryContext();
+
   const Category = useParams();
 
   const [location, setLocation] = useState({
@@ -34,8 +40,9 @@ export default function Location() {
     Geocode.fromLatLng(location.lat, location.lng)
       .then((response) => {
         const address = response.results[0].formatted_address;
-        console.log("address", address);
+        console.log("address:", address, "Category.key", Category.key);
         setAddress(address);
+        addLocation(Category.id, address);
       })
       .catch((error) => console.log(error));
   }, [location]);
