@@ -126,7 +126,7 @@ const useCategory = () => {
         obj.hasOwnProperty("location") &&
         obj.hasOwnProperty("date") &&
         obj.hasOwnProperty("roomNum") &&
-        obj.hasOwnProperty("unitsNum")
+        obj.hasOwnProperty("UnitsNum") 
       );
     });
   }

@@ -23,7 +23,7 @@ export default function Complete() {
     state: { categories },
     isCompleted,
   } = useCategoryContext();
-
+  
   const name = categories.find((item) => item.key === Category.id);
   const itemIndex = categories.indexOf(name) + 1;
   const length = categories.length;
@@ -48,7 +48,7 @@ export default function Complete() {
         </div>
       </div>
       <NextButt
-        path={isCompleted ? PATHS.ALLCATEGORIES : PATHS.UNITINFORMATION}
+        path={isCompleted(categories) ? PATHS.ALLCATEGORIES : PATHS.UNITINFORMATION}
       />
     </Container>
   );
