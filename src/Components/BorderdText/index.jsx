@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+
 import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
 
 const Borderd = styled.p`
   width: 12rem;
@@ -21,6 +23,7 @@ export default function BorderdText(props) {
   return (
     <Borderd>
       {props.back && <IoIosArrowBack />}
+      {props.Forward && <IoIosArrowForward />}
       {props.text}
     </Borderd>
   );
