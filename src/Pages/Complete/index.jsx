@@ -8,7 +8,7 @@ import NextButt from "../../Components/NextButt";
 import { useCategoryContext } from "../../Context/CartContext";
 import { PATHS } from "../../Router";
 
-import { IoCheckmarkCircleOutline } from "react-icons/io";
+import { IoCheckmarkCircleOutline } from "react-icons/io5";
 
 export default function Complete() {
   const Category = useParams();

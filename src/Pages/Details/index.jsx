@@ -59,7 +59,10 @@ export default function Details() {
             <Room key={room} count={room} />
           ))}
         </RoomsContainer>
-        <NextButt path={PATHS.COMPLETE + `/${Category.id}`} />
+        <NextButt
+          disabled={count === 0 || space === 0 ? true : false}
+          path={PATHS.COMPLETE + `/${Category.id}`}
+        />
       </Container>
     </>
   );

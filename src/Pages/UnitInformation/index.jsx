@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 
+import { PATHS } from "../../Router";
+
 import Container from "../../Components/Container";
-import { Description, SupTitle } from "../../Components/Container/style";
 import NextButt from "../../Components/NextButt";
 import UnitsCounter from "../../Components/UnitsCounter";
-import { useCategoryContext } from "../../Context/CartContext";
-import { PATHS } from "../../Router";
+
 import { Category, CategoryDiv } from "./style";
+import { Description, SupTitle } from "../../Components/Container/style";
+
+import { useCategoryContext } from "../../Context/CartContext";
 
 export default function UnitInformation() {
   const {
@@ -18,6 +21,7 @@ export default function UnitInformation() {
   const handleSelectCategory = (item) => {
     setCategory(item);
   };
+
   return (
     <>
       <Container title="معلومات الوحدات">
@@ -27,17 +31,21 @@ export default function UnitInformation() {
             <SupTitle>التصنيفات </SupTitle>
             {categories.map((item) => (
               <Category
-               key={item.key}
-               className={category===item.key?'selected':""} 
-               onClick={()=>handleSelectCategory(item.key)}>
+                key={item.key}
+                className={category === item.key ? "selected" : ""}
+                onClick={() => handleSelectCategory(item.key)}
+              >
                 {item.value}
               </Category>
             ))}
           </CategoryDiv>
 
-          <UnitsCounter item={category}/>
+          <UnitsCounter item={category} />
         </div>
-        <NextButt path={PATHS.LOCATION + `/${category}`} />
+        <NextButt
+          disabled={category == null ? true : false}
+          path={PATHS.LOCATION + `/${category}`}
+        />
       </Container>
     </>
   );
