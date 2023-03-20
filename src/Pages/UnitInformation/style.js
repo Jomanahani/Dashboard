@@ -13,6 +13,10 @@ export const Category = styled.button`
   text-align: right;
   padding: 1rem 2rem;
   cursor: pointer;
+
+  &.selected{
+    border: 2px solid ${(props) => props.theme.pallet.secondaryBackground};
+  }
 `;
 
 export const CategoryDiv = styled.div`

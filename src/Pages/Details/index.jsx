@@ -1,15 +1,22 @@
 import React, { useState } from "react";
+
+import { useParams } from "react-router";
+import { PATHS } from "../../Router";
+
 import { AiOutlinePlus } from "react-icons/ai";
 import { FiMinus } from "react-icons/fi";
+
 import Container from "../../Components/Container";
-import { SupTitle } from "../../Components/Container/style";
 import NextButt from "../../Components/NextButt";
 import Room from "../../Components/Room";
+
 import { CounterButt, CounterValue } from "../../Components/UnitsCounter/style";
-import { PATHS } from "../../Router";
+import { SupTitle } from "../../Components/Container/style";
 import { RoomCounter, RoomsContainer, SpaceInput } from "./style";
 
 export default function Details() {
+  const Category = useParams();
+
   const [count, setCount] = useState(0);
   const [space, setSpace] = useState(0);
   const [rooms, setRoomes] = useState([]);
@@ -52,7 +59,7 @@ export default function Details() {
             <Room key={room} count={room} />
           ))}
         </RoomsContainer>
-        <NextButt path={PATHS.UNITINFORMATION} />
+        <NextButt path={PATHS.COMPLETE + `/${Category.id}`} />
       </Container>
     </>
   );

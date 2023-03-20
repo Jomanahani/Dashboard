@@ -4,7 +4,7 @@ export const lightTheme = {
     primary: "#335C87",
     secondary: "#9F9F9F",
     primaryText: "#1C1C1C",
-    secondaryText: "#9F9F9F",
+    secondaryText: "#707070",
     page: "",
     mainBackdround: "#FFFFFF",
     secondaryBackground: "#D84E67",

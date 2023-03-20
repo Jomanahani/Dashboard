@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import { PATHS } from "../../Router";
+
 import GoogleMapReact from "google-map-react";
 import Geocode from "react-geocode";
 
 import Container from "../../Components/Container";
 import NextButt from "../../Components/NextButt";
-
-import { PATHS } from "../../Router";
-import { MapContainer } from "./style";
 import { Description, SupTitle } from "../../Components/Container/style";
 
+import { MapContainer } from "./style";
+
 export default function Location() {
+  const Category = useParams();
+
   const [location, setLocation] = useState({
     lat: "",
     lng: "",
@@ -22,6 +26,7 @@ export default function Location() {
       lng: event.lng,
     });
   };
+
   Geocode.setApiKey("AIzaSyC1yySSSHPEEBHeNo6E2MjRTlE6w4mLZog");
   Geocode.setLanguage("ar");
 
@@ -35,7 +40,11 @@ export default function Location() {
       .catch((error) => console.log(error));
   }, [location]);
 
-  const Marker = () => <div className="marker" style={{fontSize:"1.5rem"}}>📍</div>;
+  const Marker = () => (
+    <div className="marker" style={{ fontSize: "1.5rem" }}>
+      📍
+    </div>
+  );
 
   const defaultProps = {
     center: {
@@ -63,7 +72,7 @@ export default function Location() {
         </MapContainer>
         <SupTitle>الموقع الذي تم إختياره</SupTitle>
         <Description> {address} </Description>
-        <NextButt path={PATHS.CALENDAR} />
+        <NextButt path={PATHS.CALENDAR + `/${Category.id}`} />
       </Container>
     </>
   );
