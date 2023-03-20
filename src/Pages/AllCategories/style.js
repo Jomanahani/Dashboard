@@ -38,6 +38,6 @@ export const Data = styled.div`
   color: ${(props) => props.theme.pallet.DarkGray};
   font-size: 1.5rem;
   & > p {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 `;

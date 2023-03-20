@@ -17,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 body{
 background-color:${(props) => props.theme.pallet.page};
+font-family: 'Almarai', sans-serif;
 }
 body a {
   text-decoration: none;
