@@ -23,7 +23,7 @@ export const RoomCounter = styled(CounterHead)`
 export const RoomsContainer = styled(UnitsContainer)`
   flex-direction: column;
   flex-wrap: nowrap;
-  min-height: 14rem;
+  max-height: 14rem;
   gap: 0;
   margin-bottom: 1rem;
 `;

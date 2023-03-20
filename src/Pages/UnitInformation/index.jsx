@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Container from "../../Components/Container";
 import { Description, SupTitle } from "../../Components/Container/style";
@@ -13,25 +13,31 @@ export default function UnitInformation() {
     state: { categories },
   } = useCategoryContext();
 
+  const [category, setCategory] = useState(null);
+
+  const handleSelectCategory = (item) => {
+    setCategory(item);
+  };
   return (
     <>
       <Container title="معلومات الوحدات">
         <Description>اختر عدد الوحدات وأرقامها في كل تصنيف</Description>
-        <div style={{display:"flex"}}>
+        <div style={{ display: "flex" }}>
           <CategoryDiv>
-        <SupTitle>التصنيفات </SupTitle>
-        {categories.map((item)=>(
-          <Category key={item.key}>
-            {item.value}
-          </Category>
-        ))
-
-        }
+            <SupTitle>التصنيفات </SupTitle>
+            {categories.map((item) => (
+              <Category
+               key={item.key}
+               className={category===item.key?'selected':""} 
+               onClick={()=>handleSelectCategory(item.key)}>
+                {item.value}
+              </Category>
+            ))}
           </CategoryDiv>
 
-          <UnitsCounter />
+          <UnitsCounter item={category}/>
         </div>
-        <NextButt path={PATHS.LOCATION} />
+        <NextButt path={PATHS.LOCATION + `/${category}`} />
       </Container>
     </>
   );
